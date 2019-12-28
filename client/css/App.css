@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------------------------------- */
+
+.button-col {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.edit-col {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #000;
+}
+
+table {
+  counter-reset: tableCount;
+}
+
+.counterCell:before {
+  content: counter(tableCount);
+  counter-increment: tableCount;
+}
+
+.counterCell {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #000;
+}
+
+.button-center {
+  text-align: center;
+}
+
+.Modal {
+  position: relative;
+  top: 250px;
+  left: 350px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #F5F5F5;
+  width: 450px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rebeccapurple;
+}
+
+.button-center {
+  text-align: center;
+}
+
+label{
+  display: inline-block;
+  width: 160px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.input-field {
+  width: 140px;
+}
+
+fieldset{
+  border: none;
+  margin: 0px auto;
+}
+
+.closebtn{
+  float: right;
+}
