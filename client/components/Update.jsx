@@ -3,6 +3,7 @@ import {Button} from 'react-bootstrap';
 import Modal from 'react-modal';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 
 const querystring = require('querystring');
 
@@ -142,9 +143,8 @@ class Update extends React.Component {
                         <span className="closebtn glyphicon glyphicon-remove" title='Close' onClick={this.closeModal}></span>
                     </Link><br/>
                     <fieldset>
-                        <label for="room">Room:</label>
-                           <select type="text" className='input-field' id="room" name="room" value={this.state.room} onChange={this.handleTextChange} required>
-                               <option>Select</option>
+                           <select type="text" className='input-field input-field-height' id="room" name="room" value={this.state.room} onChange={this.handleTextChange} required>
+                               <option selected>Room</option>
                                <option value="Apartment (303)" id="Apartment303">Apartment (303)</option>
                                <option value="Apartment (205)" id="Apartment205">Apartment (205)</option>
                                <option value="Quadruple (301)" id="Quadruple301">Quadruple (301)</option>
@@ -156,12 +156,17 @@ class Update extends React.Component {
                                <option value="Twin (102)" id="Twin102">Twin (102)</option>
                                <option value="Twin (103)" id="Twin103">Twin (103)</option>
                            </select>
-                        <label for="startDate">Start Date:</label><input type="date" className='input-field' id="startDate" name="startDate" value={this.state.startDate} onChange={this.handleTextChange} required></input>
-                        <label for="endDate">End Date:</label><input type="date" className='input-field' id="endDate" name="endDate" value={this.state.endDate} onChange={this.handleTextChange} required></input>
-                        <label for="contact">Contact:</label><input type="text" className='input-field' id="contact" name="contact" value={this.state.contact} onChange={this.handleTextChange} required></input>
-                        <label for="adults">Adults:</label><input type="number" className='input-field' id="adults" name="adults" value={this.state.adults} onChange={this.handleTextChange} required></input>
-                        <label for="children">Children:</label><input type="number" className='input-field' id="children" name="children" value={this.state.children} onChange={this.handleTextChange}></input>
-                        <label for="description">Description:</label><input type="text" className='input-field' id="description" name="description" value={this.state.description} onChange={this.handleTextChange}></input>
+                           <DateRangePicker
+                          value={[this.state.startDate, this.state.endDate]}
+                          onChange={this.onDatesChange}
+                          minDate={new Date()}
+                          showLeadingZeros={true}
+                          className='input-field input-field-height'
+                        />
+                        <input type="text" className='input-field input-field-height' id="contact" name="contact" placeholder='Contact' value={this.state.contact} onChange={this.handleTextChange} required></input>
+                        <input type="number" className='input-number input-field-height' id="adults" name="adults" placeholder='Adults' value={this.state.adults} onChange={this.handleTextChange} required></input>
+                        <input type="number" className='input-number input-field-height' id="children" name="children" placeholder='Children' value={this.state.children} onChange={this.handleTextChange}></input>
+                        <input type="text" className='input-desc input-field-height' id="description" name="description" placeholder='Description' value={this.state.description} onChange={this.handleTextChange}></input>
                     </fieldset>
                     <div className='button-center'><br/>
                         <Button bsStyle="warning" bsSize="small" onClick={this.onClick}>Update Booking</Button>
