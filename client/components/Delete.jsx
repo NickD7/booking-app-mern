@@ -16,17 +16,17 @@ class Delete extends React.Component {
         this.deleteBooking = this.deleteBooking.bind(this);
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.setState({
             id: this.props.booking._id
         })
     }
 
-    onClick(e) {
+    onClick = (e) => {
         this.deleteBooking(this);
     }
 
-    deleteBooking(e){
+    deleteBooking= (e) => {
         axios.get('/delete?id=' + e.state.id);
     }
 

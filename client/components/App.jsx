@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Add from './Add';
-import Update from './Update';
-import Delete from './Delete';
+import Add from './Add.jsx';
+import Update from './Update.jsx';
+import Delete from './Delete.jsx';
 import moment from 'moment';
 import '../css/App.css';
 
-export default class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     
@@ -26,7 +26,7 @@ export default class App extends React.Component {
     this.getData(this);
   }
 
-  getData(ev) {
+  getData = (ev) => {
     axios.get('/getAll')
       .then(function(response) {
         ev.setState({data: response.data});
@@ -82,4 +82,6 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;
 

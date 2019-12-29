@@ -29,7 +29,7 @@ class Update extends React.Component {
         this.closeModal = this.closeModal.bind(this);
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.setState({
           id: this.props.booking._id,
           room: this.props.booking.room,
@@ -43,24 +43,24 @@ class Update extends React.Component {
         });
     }
 
-    openModal() {
+    openModal = () => {
         this.setState({
           modalIsOpen: true
         });
     }
 
-    closeModal() {
+    closeModal = () => {
         this.setState({
           modalIsOpen: false,
           messageFromServer: ''
         });
     }
 
-    onClick(e) {
+    onClick = (e) => {
         this.updateBooking(this);
     }
 
-    handleTextChange(e) {
+    handleTextChange = (e) => {
         if (e.target.name == "room") {
           this.setState({
             room: e.target.value
@@ -104,7 +104,7 @@ class Update extends React.Component {
         };
     }
 
-    updateBooking(e) {
+    updateBooking = (e) => {
         axios.post('/update',
           querystring.stringify({
             _id: e.state.id,
@@ -139,7 +139,7 @@ class Update extends React.Component {
                     contentLabel="Add Booking"
                     className="Modal">
                     <Link to={{pathname: '/'}} style={{ textDecoration: 'none' }}>
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span className="closebtn glyphicon glyphicon-remove"></span></Button>
+                        <span className="closebtn glyphicon glyphicon-remove" title='Close' onClick={this.closeModal}></span>
                     </Link><br/>
                     <fieldset>
                         <label for="room">Room:</label>
