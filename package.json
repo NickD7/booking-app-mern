@@ -31,6 +31,7 @@
   "scripts": {
     "webpack": "webpack",
     "start": "npm install --dev && npm run webpack && nodemon — exec babel-node ./bin/www",
+    "start-local": "npm run webpack && nodemon — exec babel-node ./bin/www",
     "heroku-prebuild": "npm install --dev"
   },
   "eslintConfig": {
