@@ -163,7 +163,7 @@ class Update extends React.Component {
                           showLeadingZeros={true}
                           className='input-field input-field-height'
                         />
-                        <input type="text" className='input-field input-field-height' id="contact" name="contact" placeholder='Contact' value={this.state.contact} onChange={this.handleTextChange} required></input>
+                        <input type="text" className='input-contact input-field-height' id="contact" name="contact" placeholder='Contact' value={this.state.contact} onChange={this.handleTextChange} required></input>
                         <input type="number" className='input-number input-field-height' id="adults" name="adults" placeholder='Adults' value={this.state.adults} onChange={this.handleTextChange} required></input>
                         <input type="number" className='input-number input-field-height' id="children" name="children" placeholder='Children' value={this.state.children} onChange={this.handleTextChange}></input>
                         <input type="text" className='input-desc input-field-height' id="description" name="description" placeholder='Description' value={this.state.description} onChange={this.handleTextChange}></input>
