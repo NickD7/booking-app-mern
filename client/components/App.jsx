@@ -75,7 +75,9 @@ class App extends Component {
         <table>
           <thead>
             <tr>
-              <th></th>
+              <th>
+                <span className='glyphicon glyphicon-info-sign info-sign' title='Click on column headers to sort'></span>
+              </th>
               <th className='button-col'>Room</th>
               <th className='button-col'>Start Date</th>
               <th className='button-col'>End Date</th>

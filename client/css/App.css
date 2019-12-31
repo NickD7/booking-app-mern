@@ -138,6 +138,12 @@ label{
   min-width: auto;
 }
 
+.info-sign {
+  font-size: 20px;
+  text-align: center;
+  display: grid;
+}
+
 fieldset{
   border: none;
   margin: 0px auto;
