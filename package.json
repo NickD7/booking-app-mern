@@ -31,9 +31,9 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "start": "npm install --dev && npm run webpack && nodemon — exec babel-node ./bin/www",
+    "start": "npm install && npm install --dev && npm run webpack && nodemon — exec babel-node ./bin/www",
     "start-local": "npm run webpack && nodemon — exec babel-node ./bin/www",
-    "heroku-prebuild": "npm install --dev"
+    "heroku-prebuild": "npm install && npm install --dev"
   },
   "eslintConfig": {
     "extends": "react-app"
