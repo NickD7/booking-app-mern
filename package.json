@@ -31,9 +31,9 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "start": "npm install && npm install --dev && npm run webpack && nodemon — exec babel-node ./bin/www",
+    "start": "npm install --dev && npm run webpack && nodemon — exec babel-node ./bin/www",
     "start-local": "npm run webpack && nodemon — exec babel-node ./bin/www",
-    "heroku-prebuild": "npm install && npm install --dev"
+    "heroku-prebuild": "npm install --dev"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,6 +53,7 @@
   "devDependencies": {
     "babel-cli": "6.26.0",
     "nodemon": "2.0.2",
-    "webpack": "4.41.4"
+    "webpack": "4.41.4",
+    "jquery": "3.4.1"
   }
 }
