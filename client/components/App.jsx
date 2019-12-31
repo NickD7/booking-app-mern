@@ -34,6 +34,40 @@ class App extends Component {
   }
 
   render() {
+    $(document).ready(function () {
+      let sortOrder;
+
+      $('th').each(function (col) {
+          $(this).click(function () {
+              if (sortOrder === 1) {
+                  $(this).removeClass('asc');
+                  $(this).addClass('desc selected');
+                  sortOrder = -1;
+              } else {
+                  $(this).addClass('asc selected');
+                  $(this).removeClass('desc');
+                  sortOrder = 1;
+              }
+              $(this).siblings().removeClass('asc selected');
+              $(this).siblings().removeClass('desc selected');
+              let arrData = $('table').find('tbody >tr:has(td)').get();
+              arrData.sort(function (a, b) {
+                  let val1 = $(a).children('td').eq(col).text().toUpperCase();
+                  let val2 = $(b).children('td').eq(col).text().toUpperCase();
+
+                  if ($.isNumeric(val1) && $.isNumeric(val2)) {
+                      return sortOrder == 1 ? val1 - val2 : val2 - val1;
+                  } else {
+                      return (val1 < val2) ? -sortOrder : (val1 > val2) ? sortOrder : 0;
+                  }
+              });
+              $.each(arrData, function (index, row) {
+                  $('tbody').append(row);
+              });
+          });
+      });
+    });
+
     return (
       <div style={{margin: '10px'}}>
         <Add />
@@ -49,8 +83,6 @@ class App extends Component {
               <th className='button-col'>Adults</th>
               <th className='button-col'>Children</th>
               <th className='button-col'>Description</th>
-              {/* <th className='edit-col'>Edit</th>
-              <th className='edit-col'>Delete</th> */}
             </tr>
           </thead>
           <tbody>
@@ -59,8 +91,8 @@ class App extends Component {
                 let startDate = booking.startDate;
                 let endDate = booking.endDate;
 
-                startDate = moment(startDate).format('Do MMM YYYY');
-                endDate = moment(endDate).format('Do MMM YYYY');
+                startDate = moment(startDate).format('YYYY MMM Do'); //  Used YYYY MMM Do for right sorting, else use Do MMM YYYY
+                endDate = moment(endDate).format('YYYY MMM Do');
 
                 return <tr>
                   <td className='counterCell'></td>

@@ -45,7 +45,9 @@ class Add extends React.Component {
     closeModal = () => {
         this.setState({
           modalIsOpen: false,
-          messageFromServer: ''
+          messageFromServer: '',
+          startDate: '',
+          endDate: ''
         });
     }
 
@@ -139,7 +141,7 @@ class Add extends React.Component {
                         <span className="closebtn glyphicon glyphicon-remove" title='Close' onClick={this.closeModal}></span>
                     </Link><br/>
                     <fieldset>
-                        <select type="text" className='input-field input-field-height' id="room" name="room" value={this.state.room} onChange={this.handleTextChange} required>
+                        <select type="text" className='input-field input-field-height' id="room" name="room" onChange={this.handleTextChange} required>
                             <option selected>Room</option>
                             <option value="Apartment (303)" id="Apartment303">Apartment (303)</option>
                             <option value="Apartment (205)" id="Apartment205">Apartment (205)</option>
@@ -159,10 +161,10 @@ class Add extends React.Component {
                           showLeadingZeros={true}
                           className='input-field input-field-height'
                         />
-                        <input type="text" className='input-contact input-field-height' id="contact" name="contact" placeholder='Contact' value={this.state.contact} onChange={this.handleTextChange} required></input>
-                        <input type="number" className='input-number input-field-height' id="adults" name="adults" placeholder='Adults' value={this.state.adults} onChange={this.handleTextChange} required></input>
-                        <input type="number" className='input-number input-field-height' id="children" name="children" placeholder='Children' value={this.state.children} onChange={this.handleTextChange}></input>
-                        <input type="text" className='input-desc input-field-height' id="description" name="description" placeholder='Description' value={this.state.description} onChange={this.handleTextChange}></input>
+                        <input type="text" className='input-contact input-field-height' id="contact" name="contact" placeholder='Contact' onChange={this.handleTextChange} required></input>
+                        <input type="number" className='input-number input-field-height' id="adults" name="adults" placeholder='Adults' onChange={this.handleTextChange} required></input>
+                        <input type="number" className='input-number input-field-height' id="children" name="children" placeholder='Children' onChange={this.handleTextChange}></input>
+                        <input type="text" className='input-desc input-field-height' id="description" name="description" placeholder='Description' onChange={this.handleTextChange}></input>
                     </fieldset>
                     <div className='button-center'><br/>
                         <Button bsStyle="success" bsSize="small" onClick={this.onClick}>Add New Booking</Button>
