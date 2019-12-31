@@ -5,6 +5,7 @@ import Add from './Add.jsx';
 import Update from './Update.jsx';
 import Delete from './Delete.jsx';
 import moment from 'moment';
+import $ from 'jquery';
 import '../css/App.css';
 
 class App extends Component {
